@@ -1,57 +1,39 @@
-<!doctype html>
-<meta charset="utf-8">
+<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-        <script>
-                window.onload = function() {
-                  var context = new AudioContext();
-                }
-                </script>
+  <!-- Tartu Tänavad Roleplay Loading Screen -->
+  <script>
+    window.onload = function() {
+      var context = new AudioContext();
+    }
+  </script>
   <meta charset="UTF-8" />
   <title>Tartu Tänavad Roleplay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="keks.css" />
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <!-- remember, jQuery is completely optional -->
-  <!-- <script type='text/javascript' src='js/jquery-1.11.1.min.js'></script> -->
   <script type='text/javascript' src='jquery.particleground.js'></script>
   <script type='text/javascript' src='demo.js'></script>
 </head>
-
 <body>
-        
-<div id="particles">
-    
-  <div id="intro">
-       <div><img src='Logo.png' style='width:300px;heigth:300px'>
-    
-    </div>
+  <div id="particles">
+    <div id="intro">
+      <div><img src='Logo.png' style='width:300px;heigth:300px'></div>
         <hr style='width:300px'>
-       
            <div> <font face='Montserrat' size='15px'>Tartu T&aumlnavad Roleplay</font></div>
             <div>
-                <p class='loading'><font face='Montserrat'> &Uumlhendan sind serveriga</p></font>
-      <p id="currentSong"><font face='Montserrat'> Laulu nimi: </p>
-			<p id="pressspacebar"><font face='Montserrat' size='3px'> Vajuta 
-        <span id="changeColor">SPACEBAR'i</span>
-        , et muusika vaigistada.
-      </p>
-
-
-		</div>
-            </div>
-
-            <div>
-
-    <audio id="leson">
-    </audio>
-    <script> // random song [nigol]
+              <p class='loading'><font face='Montserrat'> &Uumlhendan sind serveriga</p></font>
+                <p id="currentSong"><font face='Montserrat'> Laulu nimi: </p>
+			           <p id="pressspacebar"><font face='Montserrat' size='3px'> Vajuta 
+                  <span id="changeColor">SPACEBAR'i</span>
+                    , et muusika vaigistada.</p>
+  <div>
+    <audio id="leson"></audio>
+    <script type="text/javascript"> // random song [nigol]
       var player = document.getElementById("leson");
-        player.autoplay=true;
-
+      player.autoplay=true;
       var lastSong = null;
       var selection = null;
-
       var laulud = ['ootasa.mp3', 'tulipunasedroosid.mp3', 'seitseinglit.mp3', 'silmad.mp3'];
 
       player.addEventListener("ended", selectRandom);
@@ -63,44 +45,38 @@
 
         lastSong = selection;
         player.src = laulud[selection];
-
       }
-
       selectRandom();
       player.play();
     </script>
+    <script type="text/javascript"> // skript laulu vaigistamiseks [modifitseeris nigol]
+      var play = false;
+      var myAudio = document.getElementById("leson");
+      var keyPressed = document.getElementById("changeColor");
+        myAudio.volume = 0.1;
 
-    <script> // skript laulu vaigistamiseks [modifitseeris nigol]
-
-    var play = false;
-    var myAudio = document.getElementById("leson");
-    var keyPressed = document.getElementById("changeColor");
-    myAudio.volume = 0.1;
-
-    function onKeyDown(event) {
+          function onKeyDown(event) {
             switch (event.keyCode) {
-                case 32: //SpaceBar                    
-                    if (play) {
-                        myAudio.pause();
-                        play = false;
-                        keyPressed.style.color = "red";
-                        keyPressed.style.fontWeight = "bold";                        
-                    } else {
-                        myAudio.play();
-                        play = true;
-                        keyPressed.style.color = "green";
-                        keyPressed.style.fontWeight = "bold";
-                    }
-                    break;
+              case 32:                 
+                if (play) {
+                  myAudio.pause();
+                  play = false;
+                  keyPressed.style.color = "red";
+                  keyPressed.style.fontWeight = "bold";                        
+                  } else {
+                      myAudio.play();
+                      play = true;
+                      keyPressed.style.color = "green";
+                      keyPressed.style.fontWeight = "bold";
+                  }
+                  break;
             }
-      return false;
-    }
-
-    window.addEventListener("keydown", onKeyDown, false);
+          return false;
+          }
+          window.addEventListener("keydown", onKeyDown, false);
     </script>
-
     <script type="text/javascript"> // laulu nimi [nigol]
-      var lauluNimed = ["Mati Nuude - Oota Sa", "Mati Nuude - Tulipunased Roosid", "Mati Nuude - Seitse Inglit", "Mati Nuude - Silmad"]
+      var lauluNimed = ["Mati Nuude - Oota Sa", "Mati Nuude - Tulipunased Roosid", "Mati Nuude - Seitse Inglit", "Mati Nuude - Silmad"];
       if (selection == 0) {
         document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[0];
       }
@@ -114,33 +90,16 @@
         document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[3];
       }
     </script>
-
     <style type="text/css">
       #currentSong {
         font-size: 190%;
       }
-      #changeColor {
+      #changeColor, #pressspacebar {
         font-weight: bold;
       }
-      #pressspacebar {
-        font-weight: bold;
-      }
-    </style>
-                          
-            </div>
-
-            <div>                <img src='Discord.png' style='width:70px;height:17px'>
-            </div>
-            <div>
-                
-                <font face='Montserrat' size="3px">discord.gg/C3mH4ZR</font>
-            </div>
-
-
+    </style>          
   </div>
-</div>
-
-
-
+  <div><img src='Discord.png' style='width:70px;height:17px'></div>
+      <div><font face='Montserrat' size="3px">discord.gg/C3mH4ZR</font></div>
 </body>
 </html>
