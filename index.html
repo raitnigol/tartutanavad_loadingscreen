@@ -22,9 +22,9 @@
         <hr style='width:300px'>
            <div> <font face='Montserrat' size='15px'>Tartu T&aumlnavad Roleplay</font></div>
               <p class='loading'><font face='Montserrat'> &Uumlhendan sind serveriga</p></font>
-                <p id="currentSong"><font face='Montserrat'> Oih! Laulu nime ei saa kuvada.</p>
-			           <p id="pressspacebar"><font face='Montserrat' size='3px'> Vajuta 
-                  <span id="changeColor">SPACEBAR'i</span>
+                <p id="currentSong" style="font-size: 190%;"><font face='Montserrat'> Oih! Laulu nime ei saa kuvada.</p>
+			           <p id="pressspacebar" style="font-weight: bold;"><font face='Montserrat' size='3px'> Vajuta 
+                  <span id="changeColor" style="color: green;">SPACEBAR'i</span>
                     , et muusika vaigistada.</p>
   <div>
     <audio id="leson"></audio>
@@ -33,7 +33,7 @@
       player.autoplay = true;
       var lastSong = null;
       var selection = null;
-      var laulud = ['ootasa.mp3', 'tulipunasedroosid.mp3', 'seitseinglit.mp3', 'silmad.mp3', 'elbayon.mp3', 'etoleksrahu.mp3', 'jambalaya.mp3', 'lilleois.mp3', 'korraksvaid.mp3', 'tantsinii.mp3', 'unelmatemaacalifornia.mp3', 'avavalss.mp3'];
+      var laulud = ['ootasa', 'tulipunasedroosid', 'seitseinglit', 'silmad', 'elbayon', 'etoleksrahu', 'jambalaya', 'lilleois', 'korraksvaid', 'tantsinii', 'unelmatemaacalifornia', 'avavalss'];
 
       player.addEventListener("ended", selectRandom);
 
@@ -43,7 +43,7 @@
         }
 
         lastSong = selection;
-        player.src = laulud[selection];
+        player.src = laulud[selection] + ".mp3";
       }
       selectRandom();
       player.play();
@@ -60,13 +60,11 @@
                 if (play) {
                   myAudio.pause();
                   play = false;
-                  keyPressed.style.color = "red";
-                  keyPressed.style.fontWeight = "bold";                        
+                  keyPressed.style.color = "red";                     
                   } else {
                       myAudio.play();
                       play = true;
                       keyPressed.style.color = "green";
-                      keyPressed.style.fontWeight = "bold";
                   }
                   break;
             }
@@ -78,19 +76,7 @@
       var lauluNimed = ["Mati Nuude - Oota Sa", "Mati Nuude - Tulipunased Roosid", "Mati Nuude - Seitse Inglit", "Mati Nuude - Silmad", "Mati Nuude - El Bayon", "Mati Nuude - Et Oleks Rahu", "Mati Nuude - Jambalaya", "Mati Nuude - Lille&otilde;is", "Mati Nuude - Korraks Vaid", "Mati Nuude - Tantsi Nii", "Mati Nuude - Unelmate Maa California", "Mati Nuude - Avavalss"];
 
       document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[selection];
-    </script>
-    <style type="text/css">
-      #currentSong {
-        font-size: 190%;
-      }
-      #pressspacebar {
-        font-weight: bold;
-      }
-      #changeColor {
-        font-weight: bold;
-        color: green;
-      }
-    </style>          
+    </script>       
   </div>
   <div><img src='Discord.png' style='width:70px;height:17px'></div>
       <div><font face='Montserrat' size="3px">discord.gg/C3mH4ZR</font></div>
