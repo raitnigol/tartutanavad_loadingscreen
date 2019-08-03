@@ -21,7 +21,6 @@
       <div><img src='Logo.png' style='width:300px;heigth:300px'></div>
         <hr style='width:300px'>
            <div> <font face='Montserrat' size='15px'>Tartu T&aumlnavad Roleplay</font></div>
-            <div>
               <p class='loading'><font face='Montserrat'> &Uumlhendan sind serveriga</p></font>
                 <p id="currentSong"><font face='Montserrat'> Laulu nimi: </p>
 			           <p id="pressspacebar"><font face='Montserrat' size='3px'> Vajuta 
@@ -34,7 +33,7 @@
       player.autoplay=true;
       var lastSong = null;
       var selection = null;
-      var laulud = ['ootasa.mp3', 'tulipunasedroosid.mp3', 'seitseinglit.mp3', 'silmad.mp3'];
+      var laulud = ['ootasa.mp3', 'tulipunasedroosid.mp3', 'seitseinglit.mp3', 'silmad.mp3', 'elbayon.mp3', 'etoleksrahu.mp3', 'jambalaya.mp3', 'lilleois.mp3', 'korraksvaid.mp3', 'tantsinii.mp3', 'unelmatemaacalifornia.mp3', 'avavalss.mp3'];
 
       player.addEventListener("ended", selectRandom);
 
@@ -76,7 +75,7 @@
           window.addEventListener("keydown", onKeyDown, false);
     </script>
     <script type="text/javascript"> // laulu nimi [nigol]
-      var lauluNimed = ["Mati Nuude - Oota Sa", "Mati Nuude - Tulipunased Roosid", "Mati Nuude - Seitse Inglit", "Mati Nuude - Silmad"];
+      var lauluNimed = ["Mati Nuude - Oota Sa", "Mati Nuude - Tulipunased Roosid", "Mati Nuude - Seitse Inglit", "Mati Nuude - Silmad", "Mati Nuude - El Bayon", "Mati Nuude - Et Oleks Rahu", "Mati Nuude - Jambalaya", "Mati Nuude - Lille&otilde;is", "Mati Nuude - Korraks Vaid", "Mati Nuude - Tantsi Nii", "Mati Nuude - Unelmate Maa California", "Mati Nuude - Avavalss"];
       if (selection == 0) {
         document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[0];
       }
@@ -89,13 +88,41 @@
       if (selection == 3) {
         document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[3];
       }
+      if (selection == 4) {
+        document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[4];
+      }
+      if (selection == 5) {
+        document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[5];
+      }
+      if (selection == 6) {
+        document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[6];
+      }
+      if (selection == 7) {
+        document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[7];
+      }
+      if (selection == 8) {
+        document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[8];
+      }
+      if (selection == 9) {
+        document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[9];
+      }
+      if (selection == 10) {
+        document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[10];
+      }
+      if (selection == 11) {
+        document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[11];
+      }
     </script>
     <style type="text/css">
       #currentSong {
         font-size: 190%;
       }
-      #changeColor, #pressspacebar {
+      #pressspacebar {
         font-weight: bold;
+      }
+      #changeColor {
+        font-weight: bold;
+        color: green;
       }
     </style>          
   </div>
