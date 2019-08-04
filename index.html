@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-  <!-- Tartu Tänavad Roleplay Loading Screen -->
+  <!-- Tartu Tï¿½navad Roleplay Loading Screen -->
   <script>
     window.onload = function() {
       var context = new AudioContext();
     }
   </script>
   <meta charset="UTF-8" />
-  <title>Tartu Tänavad Roleplay</title>
+  <title>Tartu T&aumlnavad Roleplay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="keks.css" />
   <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <script type='text/javascript' src='jquery.particleground.js'></script>
   <script type='text/javascript' src='demo.js'></script>
 </head>
-<body>
+<body onload="startTime()">
   <div id="particles">
     <div id="intro">
       <div><img src='Logo.png' style='width:300px;heigth:300px'></div>
         <hr style='width:300px'>
            <div> <font face='Montserrat' size='15px'>Tartu T&aumlnavad Roleplay</font></div>
-              <p class='loading'><font face='Montserrat'> &Uumlhendan sind serveriga</p></font>
-                <p id="currentSong" style="font-size: 190%;"><font face='Montserrat'> Oih! Laulu nime ei saa kuvada.</p>
-			           <p id="pressspacebar" style="font-weight: bold;"><font face='Montserrat' size='3px'> Vajuta 
+            <div id="loadingEffect" style="margin-top:-10px; margin-bottom:-15px;">
+              <p class='loading'><font face='Montserrat'> &Uumlhendan sind serveriga</p></font></div>
+                <div id="currentSong" style="font-size: 190%;"><font face='Montserrat'> Oih! Laulu nime ei saa kuvada.</div>
+			           <div id="pressspacebar" style="font-weight: bold;"><font face='Montserrat' size='3px'> Vajuta
                   <span id="changeColor" style="color: green;">SPACEBAR'i</span>
-                    , et muusika vaigistada.</p>
+                    , et muusika vaigistada.</div>
+                    <div id="discordImage" style="margin-top:420px;"><img src='Discord.png' style='width:70px;height:17px'></div>
+                      <div><font face='Montserrat' size="3px">discord.gg/C3mH4ZR</font></div>
+                        <div id="kellaAeg" style="margin-top:10px; font-weight: bold;"> Kellaaega ei saa kuvada.</div>
   <div>
     <audio id="leson"></audio>
     <script type="text/javascript"> // random song [nigol]
@@ -33,7 +37,7 @@
       player.autoplay = true;
       var lastSong = null;
       var selection = null;
-      var laulud = ['ootasa', 'tulipunasedroosid', 'seitseinglit', 'silmad', 'elbayon', 'etoleksrahu', 'jambalaya', 'lilleois', 'korraksvaid', 'tantsinii', 'unelmatemaacalifornia', 'avavalss'];
+      var laulud = ['ootasa', 'tulipunasedroosid', 'seitseinglit', 'silmad', 'elbayon', 'etoleksrahu', 'jambalaya', 'lilleois', 'korraksvaid', 'tantsinii', 'unelmatemaacalifornia', 'avavalss', 'viiskastiolut'];
 
       player.addEventListener("ended", selectRandom);
 
@@ -56,11 +60,11 @@
 
           function onKeyDown(event) {
             switch (event.keyCode) {
-              case 32:                 
+              case 32:
                 if (play) {
                   myAudio.pause();
                   play = false;
-                  keyPressed.style.color = "red";                     
+                  keyPressed.style.color = "red";
                   } else {
                       myAudio.play();
                       play = true;
@@ -73,12 +77,34 @@
           window.addEventListener("keydown", onKeyDown, false);
     </script>
     <script type="text/javascript"> // laulu nimi [nigol]
-      var lauluNimed = ["Mati Nuude - Oota Sa", "Mati Nuude - Tulipunased Roosid", "Mati Nuude - Seitse Inglit", "Mati Nuude - Silmad", "Mati Nuude - El Bayon", "Mati Nuude - Et Oleks Rahu", "Mati Nuude - Jambalaya", "Mati Nuude - Lille&otilde;is", "Mati Nuude - Korraks Vaid", "Mati Nuude - Tantsi Nii", "Mati Nuude - Unelmate Maa California", "Mati Nuude - Avavalss"];
+      var lauluNimed = ["Mati Nuude - Oota Sa", "Mati Nuude - Tulipunased Roosid", "Mati Nuude - Seitse Inglit", "Mati Nuude - Silmad", "Mati Nuude - El Bayon", "Mati Nuude - Et Oleks Rahu", "Mati Nuude - Jambalaya", "Mati Nuude - Lille&otilde;is", "Mati Nuude - Korraks Vaid", "Mati Nuude - Tantsi Nii", "Mati Nuude - Unelmate Maa California", "Mati Nuude - Avavalss", "Mati Nuude - Viis Kasti &Otilde;lut"];
 
       document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[selection];
-    </script>       
+    </script>
+    <script> // - kellaaja skript [nigol]
+      function startTime() {
+        var monthNames = ["jaanuar", "veebruar", "m&aumlrts", "aprill", "mai", "juuni", "juuli,","august", "september", "oktoober","november", "detsember"];
+      // kellaaeg
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+        m = checkTime(m);
+        s = checkTime(s);
+      // aasta ja kuupï¿½ev
+        var year = today.getFullYear(); // pole tarvis antud ajahetkel
+        var monthIndex = today.getMonth();
+        var day = today.getDate();
+
+        document.getElementById("kellaAeg").innerHTML =
+        h+":"+m+":"+s+" | "+day+". "+monthNames[monthIndex] ;
+        var t = setTimeout(startTime, 500);
+      }
+      function checkTime(i) {
+        if (i < 10) {i = "0" + i};
+        return i;
+      }
+    </script>
   </div>
-  <div><img src='Discord.png' style='width:70px;height:17px'></div>
-      <div><font face='Montserrat' size="3px">discord.gg/C3mH4ZR</font></div>
 </body>
 </html>
