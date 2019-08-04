@@ -3,23 +3,20 @@
 <head>
   <!-- Tartu Tänavad Roleplay Loading Screen -->
   <script>
-    window.onload = function() {
-      var context = new AudioContext();
-    }
+    window.onload = function() { var context = new AudioContext(); }
   </script>
-  <meta charset="UTF-8" />
-  <title>Tartu T&aumlnavad Roleplay</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="keks.css" />
-  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-  <script type='text/javascript' src='jquery.particleground.js'></script>
-  <script type='text/javascript' src='demo.js'></script>
+    <meta charset="UTF-8" />
+      <title>Tartu T&aumlnavad Roleplay</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="stylesheet" href="keks.css" />
+            <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+              <script type='text/javascript' src='jquery.particleground.js'></script>
+                <script type='text/javascript' src='demo.js'></script>
 </head>
 <body onload="startTime()">
   <div id="particles">
     <div id="intro">
       <div><img src='Logo.png' style='width:300px;heigth:300px'></div>
-        <hr style='width:300px'>
            <div> <font face='Montserrat' size='15px'>Tartu T&aumlnavad Roleplay</font></div>
             <div id="loadingEffect" style="margin-top:-10px; margin-bottom:-15px;">
               <p class='loading'><font face='Montserrat'> &Uumlhendan sind serveriga</p></font></div>
@@ -37,16 +34,15 @@
       player.autoplay = true;
       var lastSong = null;
       var selection = null;
-      var laulud = ['seevaikeneiu', 'tulipunasedroosid', 'seitseinglit', 'silmad', 'elbayon', 'etoleksrahu', 'jambalaya', 'lilleois', 'korraksvaid', 'tantsinii', 'unelmatemaacalifornia', 'avavalss', 'viiskastiolut', 'ootasa'];
-
+      var laulud = ['seevaikeneiu', 'tulipunasedroosid', 'seitseinglit', 'silmad', 'elbayon', 'etoleksrahu', 'jambalaya', 'lilleois', 'korraksvaid', 'tantsinii', 'unelmatemaacalifornia', 'avavalss', 'viiskastiolut'];
       player.addEventListener("ended", selectRandom);
 
       function selectRandom() {
         while(selection == lastSong) {
           selection = Math.floor(Math.random() * laulud.length);
         }
-
         lastSong = selection;
+        for (let i = 0; i < 100; i++) { selection = Math.floor(Math.random() * laulud.length); } // warmup (nigol)
         player.src = laulud[selection] + ".mp3";
       }
       selectRandom();
@@ -64,7 +60,7 @@
                 if (play) {
                   myAudio.pause();
                   play = false;
-                  keyPressed.style.color = "red";                     
+                  keyPressed.style.color = "red";                   
                   } else {
                       myAudio.play();
                       play = true;
@@ -74,7 +70,20 @@
             }
           return false;
           }
-          window.addEventListener("keydown", onKeyDown, false);
+          window.addEventListener("keydown", onKeyDown, false); // laulu muutmise skript [nigol]
+          function onKeyDown2(event) {
+            switch (event.keyCode) {
+              case 65:                 
+                if (play) {
+                  selectRandom();
+                  document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[selection];                                       
+                  } else {
+                    var x = x;
+                  }
+                  break;
+            }
+          }
+          window.addEventListener("keydown", onKeyDown2, true);          
     </script>
     <script type="text/javascript"> // laulu nimi [nigol]
       var lauluNimed = ["Mati Nuude - See V&aumlike Neiu", "Mati Nuude - Tulipunased Roosid", "Mati Nuude - Seitse Inglit", "Mati Nuude - Silmad", "Mati Nuude - El Bayon", "Mati Nuude - Et Oleks Rahu", "Mati Nuude - Jambalaya", "Mati Nuude - Lille&otilde;is", "Mati Nuude - Korraks Vaid", "Mati Nuude - Tantsi Nii", "Mati Nuude - Unelmate Maa California", "Mati Nuude - Avavalss", "Mati Nuude - Viis Kasti &Otilde;lut"];
@@ -96,15 +105,14 @@
         var monthIndex = today.getMonth();
         var day = today.getDate();
 
-        document.getElementById("kellaAeg").innerHTML =
-        h+":"+m+":"+s+" | "+day+". "+monthNames[monthIndex] ;
+        document.getElementById("kellaAeg").innerHTML = h+":"+m+":"+s+" | "+day+". "+monthNames[monthIndex];
         var t = setTimeout(startTime, 500);
       }
       function checkTime(i) {
         if (i < 10) {i = "0" + i};
         return i;
       }
-    </script>   
+    </script>
   </div>
 </body>
 </html>
