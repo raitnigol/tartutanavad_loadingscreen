@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
-  <!-- Tartu Tï¿½navad Roleplay Loading Screen -->
+  <!-- Tartu Tänavad Roleplay Loading Screen -->
   <script>
     window.onload = function() {
       var context = new AudioContext();
@@ -37,7 +37,7 @@
       player.autoplay = true;
       var lastSong = null;
       var selection = null;
-      var laulud = ['ootasa', 'tulipunasedroosid', 'seitseinglit', 'silmad', 'elbayon', 'etoleksrahu', 'jambalaya', 'lilleois', 'korraksvaid', 'tantsinii', 'unelmatemaacalifornia', 'avavalss', 'viiskastiolut'];
+      var laulud = ['seevaikeneiu', 'tulipunasedroosid', 'seitseinglit', 'silmad', 'elbayon', 'etoleksrahu', 'jambalaya', 'lilleois', 'korraksvaid', 'tantsinii', 'unelmatemaacalifornia', 'avavalss', 'viiskastiolut', 'ootasa'];
 
       player.addEventListener("ended", selectRandom);
 
@@ -53,18 +53,18 @@
       player.play();
     </script>
     <script type="text/javascript"> // skript laulu vaigistamiseks [modifitseeris nigol]
-      var play = false;
+      var play = true;
       var myAudio = document.getElementById("leson");
       var keyPressed = document.getElementById("changeColor");
         myAudio.volume = 0.1;
 
           function onKeyDown(event) {
             switch (event.keyCode) {
-              case 32:
+              case 32:                 
                 if (play) {
                   myAudio.pause();
                   play = false;
-                  keyPressed.style.color = "red";
+                  keyPressed.style.color = "red";                     
                   } else {
                       myAudio.play();
                       play = true;
@@ -77,7 +77,7 @@
           window.addEventListener("keydown", onKeyDown, false);
     </script>
     <script type="text/javascript"> // laulu nimi [nigol]
-      var lauluNimed = ["Mati Nuude - Oota Sa", "Mati Nuude - Tulipunased Roosid", "Mati Nuude - Seitse Inglit", "Mati Nuude - Silmad", "Mati Nuude - El Bayon", "Mati Nuude - Et Oleks Rahu", "Mati Nuude - Jambalaya", "Mati Nuude - Lille&otilde;is", "Mati Nuude - Korraks Vaid", "Mati Nuude - Tantsi Nii", "Mati Nuude - Unelmate Maa California", "Mati Nuude - Avavalss", "Mati Nuude - Viis Kasti &Otilde;lut"];
+      var lauluNimed = ["Mati Nuude - See V&aumlike Neiu", "Mati Nuude - Tulipunased Roosid", "Mati Nuude - Seitse Inglit", "Mati Nuude - Silmad", "Mati Nuude - El Bayon", "Mati Nuude - Et Oleks Rahu", "Mati Nuude - Jambalaya", "Mati Nuude - Lille&otilde;is", "Mati Nuude - Korraks Vaid", "Mati Nuude - Tantsi Nii", "Mati Nuude - Unelmate Maa California", "Mati Nuude - Avavalss", "Mati Nuude - Viis Kasti &Otilde;lut"];
 
       document.getElementById("currentSong").innerHTML = "Laulu nimi: " + lauluNimed[selection];
     </script>
@@ -91,7 +91,7 @@
         var s = today.getSeconds();
         m = checkTime(m);
         s = checkTime(s);
-      // aasta ja kuupï¿½ev
+      // aasta ja kuupäev
         var year = today.getFullYear(); // pole tarvis antud ajahetkel
         var monthIndex = today.getMonth();
         var day = today.getDate();
@@ -104,7 +104,7 @@
         if (i < 10) {i = "0" + i};
         return i;
       }
-    </script>
+    </script>   
   </div>
 </body>
 </html>
